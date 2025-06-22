@@ -1,0 +1,7 @@
+genotypename: fin_plinkpca_ldprunned.geno
+snpname: fin_plinkpca_ldprunned.snp
+indivname: fin_plinkpca_ldprunned.ind
+evecoutname: yali.pca.evec
+evaloutname: yali.pca.eval
+numoutevec: 10
+numoutlieriter: 0

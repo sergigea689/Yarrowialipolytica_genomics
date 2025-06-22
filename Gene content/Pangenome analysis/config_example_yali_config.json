@@ -1,0 +1,23 @@
+{
+ "PROJECT" : {
+  "yarr" : {
+   "genomes" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/filtassemblies/*.fasta",
+   "reference" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/YALI0-1.fasta",
+   "outdir" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/pangenome",
+   "exceptions" : [],
+   "nrounds" : 3,
+   "pid_file" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/updated_divergence2.tsv",
+   "pid_value" : 5,
+   "augustus" : "yarrowia_lipolytica",
+   "snap" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/train_yl/at.hmm",
+   "sm_method" : "HSPFuse",
+   "prot_minsize" : 100,
+   "prot_maxsize" : 4000
+  }
+ },
+ "SOFTPATH" : {
+   "snap" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/SNAP/snap", 
+   "augustus" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/Augustus-master/bin/augustus",
+   "seg" : "/mnt/lustre/home/sergiz01/genomes/Ylipgenomes/fastq/rawreads/trimmed_reads/assemblies/SEG/New/ftp.ncbi.nih.gov/pub/seg/seg/seg"
+ }
+}

@@ -1,0 +1,228 @@
+IQ-TREE 2.3.6 built Dec 11 2024
+
+Input file name: final_aligned.fasta
+Type of analysis: tree reconstruction + ultrafast bootstrap (1000 replicates)
+Random seed number: 553342
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+Since you used ultrafast bootstrap (UFBoot) please also cite: 
+
+Diep Thi Hoang, Olga Chernomor, Arndt von Haeseler, Bui Quang Minh,
+and Le Sy Vinh (2018) UFBoot2: Improving the ultrafast bootstrap
+approximation. Mol. Biol. Evol., 35:518–522.
+https://doi.org/10.1093/molbev/msx281
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 24 sequences with 1247282 amino-acid sites
+Number of constant sites: 588466 (= 47.1799% of all sites)
+Number of invariant (constant or ambiguous constant) sites: 588466 (= 47.1799% of all sites)
+Number of parsimony informative sites: 226420
+Number of distinct site patterns: 300821
+
+SUBSTITUTION PROCESS
+--------------------
+
+Model of substitution: Q.yeast+F+I+G4
+
+State frequencies: (empirical counts from alignment)
+
+  pi(A) = 0.0785
+  pi(R) = 0.0505
+  pi(N) = 0.0403
+  pi(D) = 0.0613
+  pi(C) = 0.0118
+  pi(Q) = 0.0397
+  pi(E) = 0.0664
+  pi(G) = 0.0625
+  pi(H) = 0.0229
+  pi(I) = 0.0531
+  pi(L) = 0.0940
+  pi(K) = 0.0611
+  pi(M) = 0.0221
+  pi(F) = 0.0403
+  pi(P) = 0.0484
+  pi(S) = 0.0779
+  pi(T) = 0.0576
+  pi(W) = 0.0119
+  pi(Y) = 0.0304
+  pi(V) = 0.0693
+
+Model of rate heterogeneity: Invar+Gamma with 4 categories
+Proportion of invariable sites: 0.0490
+Gamma shape alpha: 0.4785
+
+ Category  Relative_rate  Proportion
+  0         0              0.0490
+  1         0.0310         0.2378
+  2         0.2499         0.2378
+  3         0.8454         0.2378
+  4         3.0798         0.2378
+Relative rates are computed as MEAN of the portion of the Gamma distribution falling in the category.
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -10580247.9345 (s.e. 7616.5419)
+Unconstrained log-likelihood (without tree): -10531784.9667
+Number of free parameters (#branches + #model parameters): 66
+Akaike information criterion (AIC) score: 21160627.8691
+Corrected Akaike information criterion (AICc) score: 21160627.8762
+Bayesian information criterion (BIC) score: 21161422.2766
+
+Total tree length (sum of branch lengths): 3.6808
+Sum of internal branch lengths: 0.5648 (15.3452% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'ERR5235145_.aa' is drawn at root
+Numbers in parentheses are  ultrafast bootstrap support (%)
+
++--ERR5235145_.aa
+|
+|              +--ERR5235109_.aa
+|           +--| (38)
+|           |  |  +--YL_37_EKDN230056759-1A_HWT7HDSX7_L4_.aa
+|           |  +--| (89)
+|           |     +--SRR6820826_.aa
+|        +--| (36)
+|        |  +--YL_51_concatenado.aa
+|     +--| (39)
+|     |  +--ERR5235122_.aa
+|  +--| (45)
+|  |  |              +--YAGA.aa
+|  |  |           +--| (100)
+|  |  |           |  |     +--YABR.aa
+|  |  |           |  |  +--| (100)
+|  |  |           |  |  |  +--YADI.aa
+|  |  |           |  +--| (100)
+|  |  |           |     +--YADE.aa
+|  |  |        +--| (100)
+|  |  |        |  |                      +-----------------CAHI.aa
+|  |  |        |  |              +-------| (100)
+|  |  |        |  |              |       +---------------------------------------------NACO.aa
+|  |  |        |  |           +--| (100)
+|  |  |        |  |           |  +--YAAL.aa
+|  |  |        |  |        +--| (100)
+|  |  |        |  |        |  +----YAPH.aa
+|  |  |        |  |     +--| (100)
+|  |  |        |  |     |  +--YABU.aa
+|  |  |        |  |  +--| (100)
+|  |  |        |  |  |  +--YAHO.aa
+|  |  |        |  +--| (100)
+|  |  |        |     +--YAKE.aa
+|  |  |     +--| (100)
+|  |  |     |  |  +--YAPO.aa
+|  |  |     |  +--| (100)
+|  |  |     |     +--YAOS.aa
+|  |  |  +--| (100)
+|  |  |  |  +--YAYA.aa
+|  |  +--| (85)
+|  |     +--YL_45_concatenado.aa
++--| (100)
+|  |  +--YALI0-1_IGV.aa
+|  +--| (100)
+|     +--ERR5235123_.aa
+|
++--YL_118_EKDN230056797-1A_H2WFLDSXC_L1_.aa
+
+Tree in newick format:
+
+(ERR5235145_.aa:0.0003129876,(((((ERR5235109_.aa:0.0004496328,(YL_37_EKDN230056759-1A_HWT7HDSX7_L4_.aa:0.0006126259,SRR6820826_.aa:0.0002676822)89:0.0001391067)38:0.0000925351,YL_51_concatenado.aa:0.0004184344)36:0.0000963432,ERR5235122_.aa:0.0004378539)39:0.0000647191,(((((YAGA.aa:0.0209710487,((YABR.aa:0.0004458938,YADI.aa:0.0004408905)100:0.0129354918,YADE.aa:0.0146663217)100:0.0160455954)100:0.0222405527,((((((CAHI.aa:0.6842628041,NACO.aa:1.7270681227)100:0.2979597041,YAAL.aa:0.1345479775)100:0.0801442436,YAPH.aa:0.1961968646)100:0.0421406350,YABU.aa:0.0729634236)100:0.0118838358,YAHO.aa:0.0599448629)100:0.0268756822,YAKE.aa:0.0431137644)100:0.0072701921)100:0.0071571079,(YAPO.aa:0.0522934020,YAOS.aa:0.0358197054)100:0.0061879118)100:0.0048079426,YAYA.aa:0.0690190634)100:0.0281818898,YL_45_concatenado.aa:0.0006366601)85:0.0001088298)45:0.0000451242,(YALI0-1_IGV.aa:0.0004661565,ERR5235123_.aa:0.0003765942)100:0.0002059898)100:0.0002466698,YL_118_EKDN230056797-1A_H2WFLDSXC_L1_.aa:0.0002633762);
+
+CONSENSUS TREE
+--------------
+
+Consensus tree is constructed from 1000 bootstrap trees
+Log-likelihood of consensus tree: -10580270.026964618
+Robinson-Foulds distance between ML tree and consensus tree: 4
+
+Branches with support >0.000000000% are kept (extended consensus)
+Branch lengths are optimized by maximum likelihood on original alignment
+Numbers in parentheses are bootstrap supports (%)
+
++--ERR5235145_.aa
+|
+|           +--ERR5235109_.aa
+|        +--| (52)
+|        |  +--ERR5235122_.aa
+|     +--| (39)
+|     |  |     +--YL_37_EKDN230056759-1A_HWT7HDSX7_L4_.aa
+|     |  |  +--| (89)
+|     |  |  |  +--SRR6820826_.aa
+|     |  +--| (21)
+|     |     +--YL_51_concatenado.aa
+|  +--| (45)
+|  |  |              +--YAGA.aa
+|  |  |           +--| (100)
+|  |  |           |  |     +--YABR.aa
+|  |  |           |  |  +--| (100)
+|  |  |           |  |  |  +--YADI.aa
+|  |  |           |  +--| (100)
+|  |  |           |     +--YADE.aa
+|  |  |        +--| (100)
+|  |  |        |  |                      +-----------------CAHI.aa
+|  |  |        |  |              +-------| (100)
+|  |  |        |  |              |       +---------------------------------------------NACO.aa
+|  |  |        |  |           +--| (100)
+|  |  |        |  |           |  +--YAAL.aa
+|  |  |        |  |        +--| (100)
+|  |  |        |  |        |  +----YAPH.aa
+|  |  |        |  |     +--| (100)
+|  |  |        |  |     |  +--YABU.aa
+|  |  |        |  |  +--| (100)
+|  |  |        |  |  |  +--YAHO.aa
+|  |  |        |  +--| (100)
+|  |  |        |     +--YAKE.aa
+|  |  |     +--| (100)
+|  |  |     |  |  +--YAPO.aa
+|  |  |     |  +--| (100)
+|  |  |     |     +--YAOS.aa
+|  |  |  +--| (100)
+|  |  |  |  +--YAYA.aa
+|  |  +--| (85)
+|  |     +--YL_45_concatenado.aa
++--| (100)
+|  |  +--YALI0-1_IGV.aa
+|  +--| (100)
+|     +--ERR5235123_.aa
+|
++--YL_118_EKDN230056797-1A_H2WFLDSXC_L1_.aa
+
+
+Consensus tree in newick format: 
+
+(ERR5235145_.aa:0.0003113148,((((ERR5235109_.aa:0.0004685242,ERR5235122_.aa:0.0004019458)52:0.0000937597,((YL_37_EKDN230056759-1A_HWT7HDSX7_L4_.aa:0.0006095960,SRR6820826_.aa:0.0002718121)89:0.0001605990,YL_51_concatenado.aa:0.0004120764)21:0.0000919257)39:0.0000657748,(((((YAGA.aa:0.0209710306,((YABR.aa:0.0004458441,YADI.aa:0.0004408353)100:0.0129354085,YADE.aa:0.0146662455)100:0.0160454733)100:0.0222405329,((((((CAHI.aa:0.6842467798,NACO.aa:1.7270347932)100:0.2979594619,YAAL.aa:0.1345548060)100:0.0801386944,YAPH.aa:0.1961954551)100:0.0421402157,YABU.aa:0.0729630793)100:0.0118836668,YAHO.aa:0.0599444451)100:0.0268752785,YAKE.aa:0.0431140471)100:0.0072705905)100:0.0071567073,(YAPO.aa:0.0522933839,YAOS.aa:0.0358189615)100:0.0061873259)100:0.0048088967,YAYA.aa:0.0690158978)100:0.0281862681,YL_45_concatenado.aa:0.0006350965)85:0.0001094161)45:0.0000493793,(YALI0-1_IGV.aa:0.0004688822,ERR5235123_.aa:0.0003738839)100:0.0002089922)100:0.0002440122,YL_118_EKDN230056797-1A_H2WFLDSXC_L1_.aa:0.0002652876);
+
+ALISIM COMMAND
+--------------
+To simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis, you can use the following command:
+
+--alisim simulated_MSA -t final_aligned.fasta.treefile -m "Q.yeast+F+I{0.0489921}+G4{0.478492}" --length 1247282
+
+To mimic the alignment used to produce this analysis, i.e. simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis *and* copying the same gap positions as the original alignment, you can use the following command:
+
+iqtree -s final_aligned.fasta --alisim mimicked_MSA
+
+To simulate any number of alignments in either of the two commandlines above, use the --num-alignments options, for example mimic 100 alignments you would use the command line:
+
+iqtree -s final_aligned.fasta --alisim mimicked_MSA --num-alignments 100
+
+For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
+
+TIME STAMP
+----------
+
+Date and time: Sun Jun  1 21:08:31 2025
+Total CPU time used: 133577.0291 seconds (37h:6m:17s)
+Total wall-clock time used: 17702.66227 seconds (4h:55m:2s)
+

@@ -1,0 +1,113 @@
+#SmartPCA pipeline
+
+# Clone and compile EIGENSTRAT tools if needed
+git clone https://github.com/DReichLab/EIG.git
+
+# Edit the Makefile as follows to link required dependencies (LAPACKE, OpenBLAS, etc.)
+# Line 5:
+# override LDLIBS += -lgsl -lopenblas -lm -lpthread -llapacke
+#
+# Around line 74 (smartpca compilation target):
+# $(ED)/smartpca: $(ED)/smartpca.o $(ED)/eigsubs.o $(ED)/exclude.o $(ED)/smartsubs.o $(ED)/eigx.o \
+#                 mcio.o qpsubs.o admutils.o egsubs.o regsubs.o gval.o \
+#                 $(NLIB) \
+#                 $(KD)/kjg_fpca.o $(KD)/kjg_gsl.o 
+#         $(CC) -o $@ $^ $(LDLIBS)
+
+##########################################
+# Linkage Disequilibrium (LD) filtering
+##########################################
+
+
+
+# Remove the outgroup before LD pruning
+ vcftools --vcf hqvariants_yayaout_snps.recode.vcf --keep specialised.txt --recode --recode-INFO-all --out small-remo
+ve.vcf --max-missing 1 --non-ref-ac-any 1
+
+vcftools --max-missing 1 --max-alleles 2 --vcf small-remove.vcf.recode.vcf --remove-indels --recode --recode-INFO-all --out biallelicvariants --non-ref-ac-any 1
+
+bcftools annotate --set-id '%CHROM\_%POS' \
+  -o biallelicvariants_with_ids.vcf \
+  -O v \
+  biallelicvariants.recode.vcf
+# Prepare input for LD pruning
+bash ./plink_pruning_prep.sh biallelicvariants_with_ids.vcf
+
+
+# Perform LD pruning with PLINK
+plink --allow-extra-chr --double-id \
+      --indep-pairwise 50 5 0.5 \
+      --make-bed \
+      --out ld_prunned \
+      --vcf biallelicvariants_with_ids_annot.vcf
+
+
+
+
+##########################################
+# Prepare SNP list file for VCFtools
+##########################################
+
+# Convert underscore-separated coordinates to tab-delimited format for vcftools
+sed 's/_/\t/' ld_prunned.prune.in > ld_prunned.prune.in.vcftools
+
+##########################################
+# Extract pruned SNPs from VCF
+##########################################
+
+# Subset VCF to keep only pruned SNPs
+vcftools --vcf biallelicvariants_with_ids_annot.vcf \
+         --recode-INFO-all --recode \
+         --out snp_Yali_pop_LDfilter \
+         --positions ld_prunned.prune.in.vcftools
+
+##########################################
+# Convert filtered VCF to PLINK format
+##########################################
+
+# Create PLINK files from filtered VCF
+plink --allow-extra-chr --double-id \
+      --make-bed \
+      --out fin_plinkpca_ldprunned \
+      --vcf snp_Yali_pop_LDfilter.recode.vcf
+
+##########################################
+# Convert PLINK to EIGENSTRAT format
+##########################################
+
+# Convert PLINK .fam to .ind format (for SmartPCA)
+./fam2ind.sh fin_plinkpca_ldprunned.fam
+
+# Convert PLINK .bim to .snp format
+./bim2snp.sh fin_plinkpca_ldprunned.bim
+
+# Convert PLINK .bed to .geno format
+# (bed2geno.sh was modified to accept non-standard chromosome names)
+./bed2geno.sh fin_plinkpca_ldprunned.bed
+
+# Optional: Convert chromosome names from strings (e.g. YALI0A) to numeric (e.g. 1)
+# Required if SmartPCA does not accept alphanumeric chromosome IDs
+sed -i 's/YALI0A/1/g' fin_plinkpca_ldprunned.bim
+sed -i 's/YALI0A/1/g' fin_plinkpca_ldprunned.snp
+
+##########################################
+# Create SmartPCA parameter file
+##########################################
+
+# Manually create 'smartpca.par' file with the following content:
+#
+# genotypename:   plinkpca_ldprunned.geno
+# snpname:        plinkpca_ldprunned.snp
+# indivname:      plinkpca_ldprunned.ind
+# outputname:     pca_output
+# numeigs:        10
+# relthresh:      0.05
+
+##########################################
+# Compile and run SmartPCA
+##########################################
+
+
+
+# Run SmartPCA with the generated parameter file
+/mnt/c/Users/USUARIO/Desktop/pca/EIG/src/eigensrc/smartpca -p smartpca.pam
